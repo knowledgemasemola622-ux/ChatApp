@@ -2,6 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.chatapp;
 
 import java.util.regex.Pattern;
@@ -94,7 +98,7 @@ public class login {
 
     public String returnLoginStatus(Boolean loginSuccesful) {
         if (Boolean.TRUE.equals(loginSuccesful)) {
-      return("Welcome " + firstName + " " + lastName + " it is great to see you again.");
+      return("Welcome " + this.firstName + ", " + this.lastName + " it is great to see you again.");
         }else
         return "Username or password incorrect, please try again.";
     }
@@ -112,3 +116,4 @@ public class login {
     }
 
 }
+

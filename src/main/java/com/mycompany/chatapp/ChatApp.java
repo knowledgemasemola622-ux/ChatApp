@@ -17,8 +17,9 @@ public class ChatApp {
      
         /*Oracle. (2026). Java Documentation. Available at: https://docs.oracle.com/en/java/ (Accessed: 17 September 2026).
         Oracle. (2026). Pattern Class – Java API Documentation. Available at: https://docs.oracle.com/en/java/javase/ (Accessed: 17 September 2026).
-        
+        JUnit. (2026). JUnit 5 User Guide. Available at: https://docs.junit.org/current/user-guide/ (Accessed: 17 September 2026).
         */
+        
         Scanner scanner = new Scanner(System.in);
         login login = new login();
  

@@ -77,7 +77,7 @@ public class loginTest {
         System.out.println("checkCellPhoneNumber - correctly formatted");
         String cellPhoneNumber = "+27838968976";
         login instance = new login();
-        Boolean expResult = false;
+        Boolean expResult = true;
         Boolean result = instance.checkcellPhoneNumber(cellPhoneNumber);
         assertEquals(expResult, result);
     }
@@ -163,7 +163,7 @@ public class loginTest {
         login instance = new login();
         instance.registerUser("no_15", "Aa&&cc@ak100!", "+27838968976", "Knox", "Veg");
         Boolean loginSuccesful = true;
-        String expResult = "Welcome knox Veg it is great to see you again.";
+        String expResult = "Welcome knox Veg it is great to see you.";
         String result = instance.returnLoginStatus(loginSuccesful);
         assertEquals(expResult, result);
     }
