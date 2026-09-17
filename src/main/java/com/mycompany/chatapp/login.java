@@ -94,7 +94,7 @@ public class login {
 
     public String returnLoginStatus(Boolean loginSuccesful) {
         if (Boolean.TRUE.equals(loginSuccesful)) {
-      return("Welcome " + getFirstName() + ", " + getlastName() + " it is great to see you.");
+      return("Welcome " + firstName + " " + lastName + " it is great to see you again.");
         }else
         return "Username or password incorrect, please try again.";
     }

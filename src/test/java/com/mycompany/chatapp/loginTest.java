@@ -144,7 +144,7 @@ public class loginTest {
     public void testLoginUser_Failed() {
         System.out.println("login - unsuccesful login");
         login instance = new login();
-        instance.registerUser("no_195", "Aa&&cc@ak10o0!", "+278389068976", "Knox", "Veg");
+        instance.registerUser("no_195", "Aak", "083890686", "Knox", "Veg");
         String enteredusername = "no_15";
         String enteredpassword = "WrongPassword1!";
         Boolean expResult = true;
@@ -163,7 +163,7 @@ public class loginTest {
         login instance = new login();
         instance.registerUser("no_15", "Aa&&cc@ak100!", "+27838968976", "Knox", "Veg");
         Boolean loginSuccesful = true;
-        String expResult = "Welcome null, null it is great to see you.";
+        String expResult = "Welcome knox Veg it is great to see you again.";
         String result = instance.returnLoginStatus(loginSuccesful);
         assertEquals(expResult, result);
     }
