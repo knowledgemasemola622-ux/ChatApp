@@ -4,178 +4,311 @@
  */
 package com.mycompany.chatapp;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- *
- * @author Knoweldge
- */
 public class loginTest {
-    
-    public loginTest() {
-    }
-     /**
-     * Test of checkuserName method, of class Login.
+
+    /**
+     * Test username with correct formatting.
      */
     @Test
     public void testCheckuserName_CorrectFormatted() {
-        System.out.println("checkuserName - correctlyFormatted");
+
+        System.out.println("checkuserName - correctly formatted");
+
         String username = "no_15";
+
         login instance = new login();
+
         boolean expResult = true;
+
         boolean result = instance.checkuserName(username);
+
         assertEquals(expResult, result);
-        
     }
 
     /**
-     * Test of checkuserName method, of class Login.
+     * Test username with incorrect formatting.
      */
     @Test
     public void testCheckuserName_incorrectlyformatted() {
-        System.out.println("testCheckuserName_incorrectlyformatted");
+
+        System.out.println("checkuserName - incorrectly formatted");
+
         String username = "knox!!!!!";
+
         login instance = new login();
-        Boolean expResult = false;
-        Boolean result = instance.checkuserName(username);
+
+        boolean expResult = false;
+
+        boolean result = instance.checkuserName(username);
+
         assertEquals(expResult, result);
-       
     }
 
     /**
-     * Test of checkPasswordComplexity method, of class Login.
+     * Test password that meets complexity requirements.
      */
     @Test
     public void testCheckPasswordComplexity_Meets() {
-        System.out.println("checkPasswordComplexity - meets requirements");
+
+        System.out.println(
+                "checkPasswordComplexity - meets requirements");
+
         String password = "Aa&&cc@ak100!";
+
         login instance = new login();
-        Boolean expResult = true;
-        Boolean result = instance.checkPasswordComplexity(password);
+
+        boolean expResult = true;
+
+        boolean result =
+                instance.checkPasswordComplexity(password);
+
         assertEquals(expResult, result);
-        
     }
+
+    /**
+     * Test password that does not meet complexity requirements.
+     */
     @Test
     public void testCheckPasswordComplexity_DoesNotMeet() {
-          System.out.println("checkPasswordComplexity - does not meets requirements");
+
+        System.out.println(
+                "checkPasswordComplexity - does not meet requirements");
+
         String password = "password";
+
         login instance = new login();
-        Boolean expResult = false;
-        Boolean result = instance.checkPasswordComplexity(password);
+
+        boolean expResult = false;
+
+        boolean result =
+                instance.checkPasswordComplexity(password);
+
         assertEquals(expResult, result);
     }
-     /**
-     * Test of checkCellPhoneNumber method, of class Login.
+
+    /**
+     * Test correctly formatted South African cell number.
      */
     @Test
     public void testCheckCellPhoneNumber_CorrectlyFormatted() {
-        System.out.println("checkCellPhoneNumber - correctly formatted");
+
+        System.out.println(
+                "checkCellPhoneNumber - correctly formatted");
+
         String cellPhoneNumber = "+27838968976";
+
         login instance = new login();
-        Boolean expResult = true;
-        Boolean result = instance.checkcellPhoneNumber(cellPhoneNumber);
+
+        boolean expResult = true;
+
+        boolean result =
+                instance.checkcellPhoneNumber(cellPhoneNumber);
+
         assertEquals(expResult, result);
     }
- 
+
+    /**
+     * Test incorrectly formatted cell number.
+     */
     @Test
     public void testCheckCellPhoneNumber_IncorrectlyFormatted() {
-        System.out.println("checkCellPhoneNumber - incorrectly formatted");
+
+        System.out.println(
+                "checkCellPhoneNumber - incorrectly formatted");
+
         String cellPhoneNumber = "08966553";
+
         login instance = new login();
-        Boolean expResult = false;
-        Boolean result = instance.checkcellPhoneNumber(cellPhoneNumber);
+
+        boolean expResult = false;
+
+        boolean result =
+                instance.checkcellPhoneNumber(cellPhoneNumber);
+
         assertEquals(expResult, result);
     }
-    
-    @Test       
-  public void testCheckRegisterUser_PasswordDoesNotMeetComplexity() {
-        System.out.println("registerUse - password does not meet complexity");
+
+    /**
+     * Test registration with an invalid password.
+     */
+    @Test
+    public void testCheckRegisterUser_PasswordDoesNotMeetComplexity() {
+
+        System.out.println(
+                "registerUser - password does not meet complexity");
+
         String username = "no_15";
         String password = "password";
         String cellPhoneNumber = "+27838968976";
         String firstName = "Knox";
         String lastName = "Veg";
-        login instance = new login();
-        String expResult = "Password is not correctly formatted; please ensure that the"
-                + "password  contains at least eight characters, a capital letter,a number,"
-                + "and a special character.";
-        String result = instance.registerUser(username, password, cellPhoneNumber, firstName, lastName);
-        assertEquals(expResult, result);
-      
-    }
 
-    
-    @Test
-    public void testRegisterUser_CellPhoneNumberSuccesfullyCaptured() {
-        System.out.println("registerUser - cell phone correctly formatted");
-        String enteredUsername = "no_15";
-        String enteredPassword = "Aa&&cc@ak100!";
-        String CellPhoneNumber = "+27838968976";
-        String firstName = "Knox";
-        String lastName = "Veg";
         login instance = new login();
-        String  expResult = "Password succesfully captured.";        
-        String result = instance.registerUser("no_15", "Aa&&cc@ak100!", "+27838968976", "Knox", "Veg");
+
+        String expResult =
+                "Password is not correctly formatted; please ensure that the "
+                + "password contains at least eight characters, a capital letter, "
+                + "a number, and a special character.";
+
+        String result = instance.registerUser(
+                username,
+                password,
+                cellPhoneNumber,
+                firstName,
+                lastName
+        );
+
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of returnLoginStatus method, of class Login.
+     * Test successful registration.
+     */
+    @Test
+    public void testRegisterUser_CellPhoneNumberSuccessfullyCaptured() {
+
+        System.out.println(
+                "registerUser - cell phone correctly formatted");
+
+        String username = "no_15";
+        String password = "Aa&&cc@ak100!";
+        String cellPhoneNumber = "+27838968976";
+        String firstName = "Knox";
+        String lastName = "Veg";
+
+        login instance = new login();
+
+        String expResult =
+                "Username successfully captured. Password successfully captured. "
+                + "Cell number successfully captured.";
+
+        String result = instance.registerUser(
+                username,
+                password,
+                cellPhoneNumber,
+                firstName,
+                lastName
+        );
+
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test successful login.
      */
     @Test
     public void testLoginUser_Successful() {
-        System.out.println("login - succesful login");
+
+        System.out.println("login - successful login");
+
         login instance = new login();
-        instance.registerUser("no_15", "Aa&&cc@ak100!", "+27838968976", "Knox", "Veg");
+
+        instance.registerUser(
+                "no_15",
+                "Aa&&cc@ak100!",
+                "+27838968976",
+                "Knox",
+                "Veg"
+        );
+
         String enteredUsername = "no_15";
-        String enteredPassword = "Aa&&cc@ak100!";  
-        Boolean expResult = true;
-        Boolean result = instance.loginUser(enteredUsername, enteredPassword);
+        String enteredPassword = "Aa&&cc@ak100!";
+
+        boolean expResult = true;
+
+        boolean result =
+                instance.loginUser(
+                        enteredUsername,
+                        enteredPassword
+                );
+
         assertEquals(expResult, result);
-        
-    }
-    
-    @Test
-    public void testLoginUser_Failed() {
-        System.out.println("login - unsuccesful login");
-        login instance = new login();
-        instance.registerUser("no_195", "Aak", "083890686", "Knox", "Veg");
-        String enteredusername = "no_15";
-        String enteredpassword = "WrongPassword1!";
-        Boolean expResult = true;
-        Boolean result = instance.loginUser(enteredusername, enteredpassword);
-        assertEquals(expResult, result);
-        
     }
 
-    
-/**
-     * Test of returnLoginStatus method, of class Login.
+    /**
+     * Test failed login.
+     */
+    @Test
+    public void testLoginUser_Failed() {
+
+        System.out.println("login - unsuccessful login");
+
+        login instance = new login();
+
+        instance.registerUser(
+                "no_195",
+                "Aak",
+                "083890686",
+                "Knox",
+                "Veg"
+        );
+
+        String enteredUsername = "no_15";
+        String enteredPassword = "WrongPassword1!";
+
+        boolean expResult = false;
+
+        boolean result =
+                instance.loginUser(
+                        enteredUsername,
+                        enteredPassword
+                );
+
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test successful login status.
      */
     @Test
     public void testReturnLoginStatus_Success() {
-        System.out.println("returnLoginStatus - successful login");
+
+        System.out.println(
+                "returnLoginStatus - successful login");
+
         login instance = new login();
-        instance.registerUser("no_15", "Aa&&cc@ak100!", "+27838968976", "Knox", "Veg");
-        Boolean loginSuccesful = true;
-        String expResult = "Welcome knox Veg it is great to see you.";
-        String result = instance.returnLoginStatus(loginSuccesful);
+
+        instance.registerUser(
+                "no_15",
+                "Aa&&cc@ak100!",
+                "+27838968976",
+                "Knox",
+                "Veg"
+        );
+
+        boolean loginSuccessful = true;
+
+        String expResult =
+                "Welcome Knox Veg it is great to see you again.";
+
+        String result =
+                instance.returnLoginStatus(loginSuccessful);
+
         assertEquals(expResult, result);
     }
-    
-     @Test
+
+    /**
+     * Test failed login status.
+     */
+    @Test
     public void testReturnLoginStatus_Failure() {
-        System.out.println("returnLoginStatus - failed login");
-        Boolean loginSuccesful = false;
+
+        System.out.println(
+                "returnLoginStatus - failed login");
+
+        boolean loginSuccessful = false;
+
         login instance = new login();
-        String expResult = "Username or password incorrect, please try again.";
-        String result = instance.returnLoginStatus(loginSuccesful);
+
+        String expResult =
+                "Username or password incorrect, please try again.";
+
+        String result =
+                instance.returnLoginStatus(loginSuccessful);
+
         assertEquals(expResult, result);
     }
-    
 }
